@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="App\Infrastructure\Area\Query\Projections\AreaView" table="areas">
+        <id name="uuid" type="uuid_binary" column="uuid"/>
+        <field name="area"  column="area"/>
+        <embedded name="weather" class="App\Domain\Area\ValueObject\Weather"/>
+        <embedded name="natural" class="App\Domain\Shared\ValueObject\Natural"/>
+        <field name="createdAt" column="created_at" type="datetime_immutable" />
+        <field name="updatedAt" column="updated_at" nullable="true" type="datetime_immutable" />
+    </entity>
+</doctrine-mapping>

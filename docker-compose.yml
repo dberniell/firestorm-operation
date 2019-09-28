@@ -1,0 +1,45 @@
+version: '3.4'
+
+services:
+
+  nginx:
+    image: nginx:1.15-alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./etc/dev/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      - .:/app
+    depends_on:
+      - php
+
+  php:
+    build:
+      context: ./etc/dev/php/
+    ports:
+      - "2323:22"
+    volumes:
+      - .:/app
+    depends_on:
+      - mysql
+      - redis
+    environment:
+      # The "redis" matches the name of the container defined below
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+
+  mysql:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=api
+      - MYSQL_DATABASE=api
+    volumes:
+      - db_data:/var/lib/mysql
+
+  redis:
+    image: redis:4-alpine
+
+volumes:
+  db_data:

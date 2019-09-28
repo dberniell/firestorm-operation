@@ -1,0 +1,5 @@
+api_controllers:
+    resource: '../src/UI/Http/Rest/Controller/'
+    type: annotation
+    prefix: /api
+

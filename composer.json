@@ -1,0 +1,82 @@
+{
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "php": "^7.3",
+        "ext-iconv": "*",
+        "ext-json": "*",
+        "beberlei/assert": "^3.0",
+        "broadway/broadway": "^2.1",
+        "broadway/broadway-bundle": "^0.4.2",
+        "broadway/event-store-dbal": "^0.3",
+        "league/tactician-bundle": "^1.1",
+        "nelmio/api-doc-bundle": "^3.4",
+        "ramsey/uuid": "^3.8",
+        "ramsey/uuid-doctrine": "^1.5",
+        "sensio/framework-extra-bundle": "^5.2",
+        "symfony/asset": "^4.3",
+        "symfony/console": "^4.3",
+        "symfony/flex": "^1.2.5",
+        "symfony/framework-bundle": "^4.3",
+        "symfony/http-client": "^4.3",
+        "symfony/orm-pack": "^1.0",
+        "symfony/security-bundle": "^4.3",
+        "symfony/translation-contracts": "^1.1",
+        "symfony/yaml": "^4.3"
+    },
+    "require-dev": {
+        "dama/doctrine-test-bundle": "^5.0",
+        "phpstan/phpstan": "^0.11",
+        "friendsofphp/php-cs-fixer": "^2.15",
+        "phpunit/phpunit": "^8.1",
+        "roave/security-advisories": "dev-master",
+        "symfony/browser-kit": "^4.3",
+        "symfony/css-selector": "^4.3",
+        "symfony/dotenv": "^4.3",
+        "symfony/phpunit-bridge": "^4.3",
+        "symfony/profiler-pack": "^1.0"
+    },
+    "config": {
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/"
+        }
+    },
+    "replace": {
+        "symfony/polyfill-iconv": "*"
+    },
+    "scripts": {
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+        },
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ]
+    },
+    "conflict": {
+        "symfony/symfony": "*"
+    },
+    "extra": {
+        "symfony": {
+            "id": "01C1QKYZ4DSB74RHER7JCF8Q1K",
+            "allow-contrib": false,
+            "require": "^4.3"
+        }
+    },
+    "name": "dberniell/firestorm-operation",
+    "description": "Symfony 4 DDD ES CQRS backend"
+}
