@@ -1,27 +1,20 @@
-# Symfony 4 ES CQRS Boilerplate
+# Firestorm Operation
 
-A boilerplate for DDD, CQRS, Event Sourcing applications using Symfony as framework and running with php7
-
-[![Build Status](https://travis-ci.org/jorge07/symfony-4-es-cqrs-boilerplate.svg?branch=master)](https://travis-ci.org/jorge07/symfony-4-es-cqrs-boilerplate)
-[![Coverage Status](https://coveralls.io/repos/github/jorge07/symfony-4-es-cqrs-boilerplate/badge.svg?branch=master)](https://coveralls.io/github/jorge07/symfony-4-es-cqrs-boilerplate?branch=coverage)
+A project with DDD, CQRS, Event Sourcing applications using Symfony as framework and running with php7
 
 ## Documentation
 
-[Buses](https://github.com/jorge07/symfony-4-es-cqrs-boilerplate/tree/master/doc/GetStarted/Buses.md)
+[Buses](https://github.com/dberniell/firestorm-opration/tree/master/doc/GetStarted/Buses.md)
 
-[Creating an Application Use Case](https://github.com/jorge07/symfony-4-es-cqrs-boilerplate/tree/master/doc/GetStarted/UseCases.md)
+[Creating an Application Use Case](https://github.com/dberniell/firestorm-opration/tree/master/doc/GetStarted/UseCases.md)
 
-[Adding Projections](https://github.com/jorge07/symfony-4-es-cqrs-boilerplate/tree/master/doc/GetStarted/Projections.md)
+[Adding Projections](https://github.com/dberniell/firestorm-opration/tree/master/doc/GetStarted/Projections.md)
 
-[Async executions](https://github.com/jorge07/symfony-4-es-cqrs-boilerplate/tree/master/doc/GetStarted/Async.md)
-
-[UI workflow](https://github.com/jorge07/symfony-4-es-cqrs-boilerplate/blob/master/doc/Workflow.md)
-
-[Xdebug configuration](https://github.com/jorge07/symfony-4-es-cqrs-boilerplate/blob/master/doc/GetStarted/Xdebug.md)
-
-[Kubernetes Deployment](https://github.com/jorge07/symfony-4-es-cqrs-boilerplate/blob/master/doc/Deployment.md)
+[Xdebug configuration](https://github.com/dberniell/firestorm-opration/blob/master/doc/GetStarted/Xdebug.md)
 
 ## Architecture
+
+Based in the next Architecture:
 
 ![Architecture](https://i.imgur.com/SzHgMft.png)
 
@@ -31,19 +24,15 @@ A boilerplate for DDD, CQRS, Event Sourcing applications using Symfony as framew
 - [x] Command Bus, Query Bus, Event Bus
 - [x] Event Store
 - [x] Read Model
-- [x] Async Event subscribers
 - [x] Rest API
-- [x] Web UI (A Terrible UX/UI)
 - [x] Event Store Rest API 
 - [x] Swagger API Doc
 
 ## Use Cases
 
-#### User
-- [x] Sign up
-- [x] Change Email
-- [x] Sign in
-- [x] Logout
+#### Area
+- [x] Calculate Area
+- [x] Get Area by id
 
 ![API Doc](https://i.imgur.com/DBZsPlE.png)
 
@@ -51,10 +40,11 @@ A boilerplate for DDD, CQRS, Event Sourcing applications using Symfony as framew
 
 - PHP 7.3
 - Mysql 8.0
-- Elastic & Kibana 6.6
-- RabbitMQ 3
 
 ## Project Setup
+Build Environment
+
+`make build`
 
 Up environment:
 
@@ -86,10 +76,6 @@ Disable\Enable Xdebug:
 
 `make xon`
 
-Build image to deploy
-
-`make artifact`
-
 ## PHPStorm integration
 
 PHPSTORM has native integration with Docker compose. That's nice but will stop your php container after run the test scenario. That's not nice when using fpm. A solution could be use another container just for that purpose. But I don't want. For that reason I use ssh connection.
@@ -102,8 +88,7 @@ Use ssh remote connection.
 ---
 
 Host: 
-- Docker 4 Mac: `localhost`
-- docker machine OR dinghy: `192.168.99.100`
+- Docker: `localhost`
 
 Port: 
  - `2323`
