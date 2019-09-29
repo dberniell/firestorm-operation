@@ -10,6 +10,10 @@ use Symfony\Component\HttpClient\HttpClient;
 
 class OpenWeather
 {
+    /**
+     * @return string
+     * @throws \Psr\Cache\InvalidArgumentException
+     */
     public function pronosticate()
     {
         $cachedForecasts = $this->redis->getItem('forecasts');
@@ -28,6 +32,10 @@ class OpenWeather
 
     }
 
+    /**
+     * @param array $nextDayForecast
+     * @return string
+     */
     public function getNextDayForecast(array $nextDayForecast): string
     {
         $response = [
@@ -38,6 +46,14 @@ class OpenWeather
         return json_encode($response);
     }
 
+    /**
+     * @return string
+     * @throws \Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\DecodingExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface
+     */
     public function getForecastFromOpenWeather()
     {
         $client = HttpClient::create();
@@ -49,6 +65,11 @@ class OpenWeather
 
         return $this->getNextDayForeCastFromApiResponse($content["list"]);
     }
+
+    /**
+     * @param array $list
+     * @return string
+     */
     public function getNextDayForecastFromApiResponse(array $list): string
     {
         $forecasts = (array) array_filter($list, function ($row) {
@@ -60,6 +81,10 @@ class OpenWeather
         return $this->getNextDayForecast(array_shift($forecasts));
     }
 
+    /**
+     * @param $forecasts
+     * @throws \Psr\Cache\InvalidArgumentException
+     */
     private function saveForecastsToCache($forecasts): void
     {
         $cache = $this->redis->getItem('forecasts');
@@ -68,6 +93,10 @@ class OpenWeather
         $this->redis->save($cache);
     }
 
+    /**
+     * OpenWeather constructor.
+     * @param AdapterInterface $redisAdapter
+     */
     public function __construct(AdapterInterface $redisAdapter )
     {
         $this->redis = $redisAdapter;

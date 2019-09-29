@@ -8,6 +8,10 @@ use App\Domain\Shared\ValueObject\Natural;
 
 final class TrapezoidalRule
 {
+    /**
+     * @param Natural $divider
+     * @return float|int
+     */
     public static function calculateArea(Natural $divider)
     {
         $h = (self::x2 - self::x1) / $divider->toInteger();
@@ -18,11 +22,20 @@ final class TrapezoidalRule
         return $result;
     }
 
+    /**
+     * @param int $x
+     * @return float
+     */
     private function hyperbolicFunction(int $x): float
     {
         return (1 / $x);
     }
 
+    /**
+     * @param float $h
+     * @param int $divisions
+     * @return float
+     */
     private function sumOfDivisions(float $h, int $divisions): float
     {
         $sum = 0;
