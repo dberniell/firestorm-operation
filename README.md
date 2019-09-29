@@ -16,7 +16,7 @@ A project with DDD, CQRS, Event Sourcing applications using Symfony as framework
 
 Based in the next Architecture:
 
-![Architecture](https://i.imgur.com/SzHgMft.png)
+![Architecture](https://github.com/dberniell/firestorm-operation/blob/master/doc/architecture.png)
 
 ## Implementations
 
