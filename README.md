@@ -3,7 +3,7 @@
 A project with DDD, CQRS, Event Sourcing applications using Symfony as framework and running with php7
 ## Specs
 
-<a href="https://dberniell.github.io/firestorm-operation/" target="_blank">Specs</a>
+<a href="https://dberniell.github.io/firestorm-operation/" target="blank">Specs</a>
 
 ## Documentation
 
