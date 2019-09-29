@@ -4,17 +4,15 @@ A project with DDD, CQRS, Event Sourcing applications using Symfony as framework
 
 ## Documentation
 
-[Buses](https://github.com/dberniell/firestorm-opration/tree/master/doc/GetStarted/Buses.md)
+[Buses](https://github.com/dberniell/firestorm-operation/blob/master/doc/GetStarted/Buses.md)
 
-[Creating an Application Use Case](https://github.com/dberniell/firestorm-opration/tree/master/doc/GetStarted/UseCases.md)
+[Creating an Application Use Case](https://github.com/dberniell/firestorm-operation/blob/master/doc/GetStarted/UseCases.md)
 
-[Adding Projections](https://github.com/dberniell/firestorm-opration/tree/master/doc/GetStarted/Projections.md)
+[Adding Projections](https://github.com/dberniell/firestorm-operation/blob/master/doc/GetStarted/Projections.md)
 
-[Xdebug configuration](https://github.com/dberniell/firestorm-opration/blob/master/doc/GetStarted/Xdebug.md)
+[Xdebug configuration](https://github.com/dberniell/firestorm-operation/blob/master/doc/GetStarted/Xdebug.md)
 
 ## Architecture
-
-Based in the next Architecture:
 
 ![Architecture](https://github.com/dberniell/firestorm-operation/blob/master/doc/architecture.png)
 
