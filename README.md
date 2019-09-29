@@ -34,7 +34,7 @@ Based in the next Architecture:
 - [x] Calculate Area
 - [x] Get Area by id
 
-![API Doc](https://i.imgur.com/DBZsPlE.png)
+![API Doc](https://github.com/dberniell/firestorm-opration/tree/master/doc/Swagger.png)
 
 ## Stack
 
