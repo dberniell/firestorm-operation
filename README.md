@@ -3,20 +3,21 @@
 A project with DDD, CQRS, Event Sourcing applications using Symfony as framework and running with php7
 ## Specs
 
-[Specs](https://github.com/dberniell/firestorm-operation/blob/master/doc/index.html)
+[Specs](https://github.com/dberniell/firestorm-operation/blob/master/docs/index.html)
 ## Documentation
 
-[Buses](https://github.com/dberniell/firestorm-operation/blob/master/doc/GetStarted/Buses.md)
+[Buses](https://github.com/dberniell/firestorm-operation/blob/master/dosc/GetStarted/Buses.md)
 
-[Creating an Application Use Case](https://github.com/dberniell/firestorm-operation/blob/master/doc/GetStarted/UseCases.md)
+[Creating an Application Use Case](https://github.com/dberniell/firestorm-operation/blob/master/docs/GetStarted
+/UseCases.md)
 
-[Adding Projections](https://github.com/dberniell/firestorm-operation/blob/master/doc/GetStarted/Projections.md)
+[Adding Projections](https://github.com/dberniell/firestorm-operation/blob/master/docs/GetStarted/Projections.md)
 
-[Xdebug configuration](https://github.com/dberniell/firestorm-operation/blob/master/doc/GetStarted/Xdebug.md)
+[Xdebug configuration](https://github.com/dberniell/firestorm-operation/blob/master/docs/GetStarted/Xdebug.md)
 
 ## Architecture
 
-![Architecture](https://github.com/dberniell/firestorm-operation/blob/master/doc/architecture.png)
+![Architecture](https://github.com/dberniell/firestorm-operation/blob/master/docs/architecture.png)
 
 ## Implementations
 
@@ -34,7 +35,7 @@ A project with DDD, CQRS, Event Sourcing applications using Symfony as framework
 - [x] Calculate Area
 - [x] Get Area by id
 
-![API Doc](https://github.com/dberniell/firestorm-operation/blob/master/doc/swagger.png)
+![API Doc](https://github.com/dberniell/firestorm-operation/blob/master/docs/swagger.png)
 
 ## Stack
 
