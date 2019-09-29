@@ -3,13 +3,12 @@
 A project with DDD, CQRS, Event Sourcing applications using Symfony as framework and running with php7
 ## Specs
 
-[Specs](https://github.com/dberniell/firestorm-operation/blob/master/docs/index.html)
+[Specs](https://dberniell.github.io/firestorm-operation/)
 ## Documentation
 
-[Buses](https://github.com/dberniell/firestorm-operation/blob/master/dosc/GetStarted/Buses.md)
+[Buses](https://github.com/dberniell/firestorm-operation/blob/master/docs/GetStarted/Buses.md)
 
-[Creating an Application Use Case](https://github.com/dberniell/firestorm-operation/blob/master/docs/GetStarted
-/UseCases.md)
+[Creating an Application Use Case](https://github.com/dberniell/firestorm-operation/blob/master/docs/GetStarted/UseCases.md)
 
 [Adding Projections](https://github.com/dberniell/firestorm-operation/blob/master/docs/GetStarted/Projections.md)
 
