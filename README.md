@@ -96,3 +96,9 @@ Port:
 
 Filesystem mapping:
  - `{PROJECT_PATH}` -> `/app`
+
+## Missing
+
+- Some unit tests
+- Tests e2e
+- More comments on classes methods
