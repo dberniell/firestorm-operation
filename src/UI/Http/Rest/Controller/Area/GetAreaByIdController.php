@@ -57,6 +57,11 @@ final class GetAreaByIdController extends QueryController
 
         $area = $this->ask($commandRequest);
 
-        return $this->json($area);
+        return $this->json($area, [$this, 'formatResponse']);
+    }
+
+    public function formatResponse($key)
+    {
+        return in_array($key, ['area', 'weather']);
     }
 }

@@ -29,9 +29,9 @@ abstract class QueryController
         return $response;
     }
 
-    protected function json(Item $resource): JsonResponse
+    protected function json(Item $resource, $callback): JsonResponse
     {
-        return JsonResponse::create($this->formatter->one($resource));
+        return JsonResponse::create($this->formatter->one($resource, $callback));
     }
 
     protected function route(string $name, array $params = []): string

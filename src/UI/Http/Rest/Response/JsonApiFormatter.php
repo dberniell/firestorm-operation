@@ -9,11 +9,10 @@ use App\Application\Query\Item;
 
 final class JsonApiFormatter
 {
-    public static function one(Item $resource): array
+    public static function one(Item $resource, $callback): array
     {
         return array_filter([
-            'data'          => self::model($resource),
-            'relationships' => self::relations($resource->relationships),
+            'response'          => array_filter(self::model($resource)['attributes'], $callback, ARRAY_FILTER_USE_KEY),
         ]);
     }
 

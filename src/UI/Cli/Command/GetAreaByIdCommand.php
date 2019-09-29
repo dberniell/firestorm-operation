@@ -39,7 +39,12 @@ class GetAreaByIdCommand extends Command
         /** @var Item $resource */
         $resource = $this->queryBus->handle($command);
 
-        $output->writeln(json_encode($this->formatter->one($resource)));
+        $output->writeln(json_encode($this->formatter->one($resource, [$this, 'formatResponse'])));
+    }
+
+    public function formatResponse($key)
+    {
+        return in_array($key, ['area', 'weather']);
     }
 
     public function __construct(CommandBus $queryBus, JsonApiFormatter $formatter)

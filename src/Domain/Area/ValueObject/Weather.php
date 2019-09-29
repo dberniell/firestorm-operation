@@ -21,14 +21,14 @@ class Weather
         return $weath;
     }
 
-    public function toString(): string
+    public function toArray(): array
     {
         $weather = [
             "wind" => $this->wind,
             "humidity" => $this->humidity
         ];
 
-        return json_encode($weather);
+        return $weather;
     }
 
     public function __toString(): string

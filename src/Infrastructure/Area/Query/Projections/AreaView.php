@@ -36,7 +36,7 @@ class AreaView implements SerializableReadModel
         $instance->uuid = Uuid::fromString($data['uuid']);
         $instance->natural = Natural::fromInteger($data['natural']);
         $instance->area = isset($data['area']) ? $data['area'] : null;
-        $instance->weather = isset($data['weather']) ? json_decode($data['weather'], true) : null;
+        $instance->weather = isset($data['weather']) ? Weather::fromString($data['weather']) : null;
 
         $instance->createdAt = DateTime::fromString($data['created_at']);
         $instance->updatedAt = isset($data['updated_at']) ? DateTime::fromString($data['updated_at']) : null;
@@ -79,9 +79,9 @@ class AreaView implements SerializableReadModel
         $this->area = $area;
     }
 
-    public function weather(): string
+    public function weather(): array
     {
-        return $this->weather->toString();
+        return $this->weather->toArray();
     }
 
     public function changeUpdatedAt(DateTime $updatedAt): void
