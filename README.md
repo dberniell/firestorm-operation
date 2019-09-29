@@ -1,7 +1,9 @@
 # Firestorm Operation
 
 A project with DDD, CQRS, Event Sourcing applications using Symfony as framework and running with php7
+## Specs
 
+[Specs](https://github.com/dberniell/firestorm-operation/blob/master/doc/index.html)
 ## Documentation
 
 [Buses](https://github.com/dberniell/firestorm-operation/blob/master/doc/GetStarted/Buses.md)
