@@ -36,10 +36,10 @@ class CalculateAreaHandlerTest extends ApplicationTestCase
         /** @var DomainMessage[] $events */
         $events = $eventCollector->popEvents();
 
-        self::assertCount(2, $events);
+        self::assertCount(1, $events);
 
         /** @var AreaWasCalculated $areaWasCalculated */
-        $areaWasCalculated = $events[1]->getPayload();
+        $areaWasCalculated = $events[0]->getPayload();
 
         self::assertInstanceOf(AreaWasCalculated::class, $areaWasCalculated);
         self::assertSame($natural, $areaWasCalculated->natural->toInteger());

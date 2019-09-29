@@ -30,7 +30,7 @@ class CalculateAreaCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        /** @var Uuid $uuid */
+        /** @var string $uuid */
         $uuid = $input->getArgument('uuid') ?: Uuid::uuid4()->toString();
         /** @var int $naturalNumber */
         $naturalNumber = (int) $input->getArgument('naturalNumber');

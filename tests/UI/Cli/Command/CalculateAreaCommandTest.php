@@ -34,12 +34,12 @@ class CalculateAreaCommandTest extends AbstractConsoleTestCase
         $commandTester->execute([
             'command'  => $command->getName(),
             'uuid'     => $uuid,
-            'natural'    => $natural,
+            'naturalNumber'    => $natural,
         ]);
 
         $output = $commandTester->getDisplay();
 
-        $this->assertStringContainsString('natural: 6', $output);
+        $this->assertStringContainsString('"natural":6', $output);
 
         /** @var Item $item */
         $item = $this->ask(new GetAreaByIdQuery($uuid));
@@ -48,6 +48,6 @@ class CalculateAreaCommandTest extends AbstractConsoleTestCase
 
         self::assertInstanceOf(Item::class, $item);
         self::assertInstanceOf(AreaView::class, $areaRead);
-        self::assertSame($natural, $areaRead->natural());
+        self::assertSame((int) $natural, $areaRead->natural());
     }
 }

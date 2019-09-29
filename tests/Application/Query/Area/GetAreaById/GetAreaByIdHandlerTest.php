@@ -34,7 +34,7 @@ class GetAreaByIdHandlerTest extends ApplicationTestCase
 
         self::assertInstanceOf(Item::class, $item);
         self::assertInstanceOf(AreaView::class, $areaRead);
-        self::assertSame($uuid, $areaRead->uuid());
+        self::assertSame($uuid, $areaRead->uuid()->toString());
     }
 
     /**
