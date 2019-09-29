@@ -33,6 +33,8 @@ class AreaView implements SerializableReadModel
     {
         $instance = new self();
 
+        $instance->uuid = Uuid::fromString($data['uuid']);
+        $instance->natural = Natural::fromInteger($data['natural']);
         $instance->area = isset($data['area']) ? $data['area'] : null;
         $instance->weather = isset($data['weather']) ? json_decode($data['weather'], true) : null;
 
@@ -45,6 +47,8 @@ class AreaView implements SerializableReadModel
     public function serialize(): array
     {
         return [
+            'uuid'        => $this->getId(),
+            'natural'        => $this->natural(),
             'area' => $this->area(),
             'weather' => $this->weather()
         ];
