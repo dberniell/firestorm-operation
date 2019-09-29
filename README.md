@@ -15,6 +15,9 @@ A project with DDD, CQRS, Event Sourcing applications using Symfony as framework
 
 [Xdebug configuration](https://github.com/dberniell/firestorm-operation/blob/master/docs/GetStarted/Xdebug.md)
 
+## Workflow
+[WorkFlow](https://github.com/dberniell/firestorm-operation/blob/master/docs/WorkFlow.md)
+
 ## Architecture
 
 ![Architecture](https://github.com/dberniell/firestorm-operation/blob/master/docs/architecture.png)
