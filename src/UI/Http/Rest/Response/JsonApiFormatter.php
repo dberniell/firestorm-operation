@@ -12,8 +12,7 @@ final class JsonApiFormatter
     public static function one(Item $resource): array
     {
         return array_filter([
-            'data'          => self::model($resource),
-            'relationships' => self::relations($resource->relationships),
+            'response'          => self::model($resource)['attributes'],
         ]);
     }
 
