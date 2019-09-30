@@ -25,10 +25,12 @@ class GetAreaByIdHandler implements QueryHandlerInterface
     public function __invoke(GetAreaByIdQuery $query): Item
     {
         $forecast = $this->openWeather->pronosticate();
+
         /** @var AreaView $areaView */
         $areaView = $this->repository->oneByUuid($query->uuid);
-
         $areaView->weatherPronosticated(Weather::fromString($forecast));
+
+        $this->repository->add($areaView);
 
         return new Item($areaView);
     }

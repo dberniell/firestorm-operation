@@ -26,7 +26,7 @@ final class WeatherWasPronosticated implements Serializable
         return new self(
             Uuid::fromString($data['uuid']),
             Weather::fromString($data['weather']),
-            DateTime::fromString($data['created_at'])
+            DateTime::fromString($data['updated_at'])
         );
     }
 
@@ -34,16 +34,16 @@ final class WeatherWasPronosticated implements Serializable
     {
         return [
             'uuid'    => $this->uuid->toString(),
-            'weather' => $this->weather->toString(),
-            'created_at' => $this->updatedAt->toString(),
+            'weather' => $this->weather->toArray(),
+            'updated_at' => $this->updatedAt->toString(),
         ];
     }
 
-    public function __construct(UuidInterface $uuid, Weather $weather, DateTime $createdAt)
+    public function __construct(UuidInterface $uuid, Weather $weather, DateTime $updatedAt)
     {
         $this->uuid = $uuid;
         $this->weather = $weather;
-        $this->createdAt = $createdAt;
+        $this->updatedAt = $updatedAt;
     }
 
     /**
@@ -59,5 +59,5 @@ final class WeatherWasPronosticated implements Serializable
     /**
      * @var DateTime
      */
-    public $createdAt;
+    public $updatedAt;
 }

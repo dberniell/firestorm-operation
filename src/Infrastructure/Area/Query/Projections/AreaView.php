@@ -72,6 +72,7 @@ class AreaView implements SerializableReadModel
     public function weatherPronosticated(Weather $weather)
     {
         $this->weather = $weather;
+        $this->changeUpdatedAt(DateTime::now());
     }
 
     public function areaCalculated(float $area)
