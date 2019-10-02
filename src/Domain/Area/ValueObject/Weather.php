@@ -21,6 +21,16 @@ class Weather
         return $weath;
     }
 
+    public function fromArray(array $weather): Weather
+    {
+        $wheat = new self();
+
+        $wheat->wind = $weather['wind'];
+        $wheat->humidity = $weather['humidity'];
+
+        return $wheat;
+    }
+
     public function toArray(): array
     {
         $weather = [

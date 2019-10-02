@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\UI\Http\Rest\Controller\Area;
 
+use App\Application\Command\Area\PronosticateWeather\PronosticateWeatherCommand;
 use App\Application\Query\Area\GetAreaById\GetAreaByIdQuery;
+use App\UI\Http\Rest\Controller\CommandQueryController;
 use App\UI\Http\Rest\Controller\QueryController;
 use Assert\Assertion;
 use Swagger\Annotations as SWG;
@@ -12,7 +14,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
-final class GetAreaByIdController extends QueryController
+final class GetAreaByIdController extends CommandQueryController
 {
     /**
      * @Route(
@@ -52,6 +54,10 @@ final class GetAreaByIdController extends QueryController
         $uuid = $request->get('uuid');
 
         Assertion::notNull($uuid, "Uuid can\'t be null");
+
+        $command = new PronosticateWeatherCommand($uuid);
+
+        $this->exec($command);
 
         $commandRequest = new GetAreaByIdQuery($uuid);
 

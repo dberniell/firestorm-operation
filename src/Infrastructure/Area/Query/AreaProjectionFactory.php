@@ -13,15 +13,6 @@ use Broadway\ReadModel\Projector;
 class AreaProjectionFactory extends Projector
 {
     /**
-     * @throws \Assert\AssertionFailedException
-     * @throws \App\Domain\Shared\Exception\DateTimeException
-     */
-    protected function applyAreaWasCreated(AreaWasCreated $areaWasCreated): void
-    {
-
-    }
-
-    /**
      * @throws \App\Domain\Shared\Query\Exception\NotFoundException
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
@@ -33,6 +24,7 @@ class AreaProjectionFactory extends Projector
     }
 
     /**
+     * @param WeatherWasPronosticated $weatherPronosticated
      * @throws \App\Domain\Shared\Query\Exception\NotFoundException
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
@@ -42,7 +34,7 @@ class AreaProjectionFactory extends Projector
         $areaReadModel = $this->repository->oneByUuid($weatherPronosticated->uuid);
 
         $areaReadModel->weatherPronosticated($weatherPronosticated->weather);
-        $areaReadModel->changeUpdatedAt($weatherPronosticated->createdAt);
+        $areaReadModel->changeUpdatedAt($weatherPronosticated->updatedAt);
 
         $this->repository->apply();
     }

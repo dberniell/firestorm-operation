@@ -25,7 +25,7 @@ final class WeatherWasPronosticated implements Serializable
 
         return new self(
             Uuid::fromString($data['uuid']),
-            Weather::fromString($data['weather']),
+            Weather::fromArray($data['weather']),
             DateTime::fromString($data['updated_at'])
         );
     }

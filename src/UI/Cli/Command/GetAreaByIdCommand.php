@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\UI\Cli\Command;
 
+use App\Application\Command\Area\PronosticateWeather\PronosticateWeatherCommand;
 use App\Application\Query\Area\GetAreaById\GetAreaByIdQuery;
 use App\Application\Query\Item;
 use App\UI\Http\Rest\Response\JsonApiFormatter;
@@ -34,6 +35,9 @@ class GetAreaByIdCommand extends Command
         /** @var string $uuid */
         $uuid = $input->getArgument('uuid');
 
+        $command = new PronosticateWeatherCommand($uuid);
+        $this->commandBus->handle($command);
+
         $command = new GetAreaByIdQuery($uuid);
 
         /** @var Item $resource */
@@ -47,9 +51,10 @@ class GetAreaByIdCommand extends Command
         return in_array($key, ['area', 'weather']);
     }
 
-    public function __construct(CommandBus $queryBus, JsonApiFormatter $formatter)
+    public function __construct(CommandBus $commandBus, CommandBus $queryBus, JsonApiFormatter $formatter)
     {
         parent::__construct();
+        $this->commandBus = $commandBus;
         $this->queryBus = $queryBus;
         $this->formatter = $formatter;
     }
@@ -58,6 +63,11 @@ class GetAreaByIdCommand extends Command
      * @var CommandBus
      */
     private $queryBus;
+
+    /**
+     * @var CommandBus
+     */
+    private $commandBus;
 
     /**
      * @var JsonApiFormatter
