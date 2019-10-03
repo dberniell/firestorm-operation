@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Domain\Area;
 
 use App\Domain\Area\Event\AreaWasCalculated;
+use App\Domain\Area\Event\WeatherWasPronosticated;
 use App\Domain\Area\Service\TrapezoidalRule;
 use App\Domain\Shared\Specification\NaturalNumberSpecificationInterface;
 use App\Domain\Shared\ValueObject\DateTime;
@@ -43,6 +44,15 @@ class Area extends EventSourcedAggregateRoot
         $this->setNatural($event->natural);
         $this->setArea($event->area);
         $this->setCreatedAt($event->createdAt);
+    }
+
+    /**
+     * @param WeatherWasPronosticated $event
+     */
+    protected function applyWeatherWasCalculated(WeatherWasPronosticated $event): void
+    {
+        $this->setWeather($event->weather);
+        $this->setUpdatedAt($event->updatedAt);
     }
 
     private function setNatural(Natural $natural): void
